@@ -16,10 +16,10 @@ const Modal = ({ setShowModal, showModal, editData }) => {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState(initialState);
 
-  useEffect(() => {
-    const { name, username, profession, age, gender, id } = editData;
-    setFormData({ name, username, profession, age, gender, id });
-  }, [editData]);
+  // useEffect(() => {
+  //   const { name, username, profession, age, gender, id } = editData;
+  //   setFormData({ name, username, profession, age, gender, id });
+  // }, [editData]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
