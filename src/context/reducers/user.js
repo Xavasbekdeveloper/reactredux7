@@ -3,26 +3,26 @@ import { ADD_USER, REMOVE_USER, FOLLOW_USER, EDIT_USER } from "../action";
 const initialState = JSON.parse(localStorage.getItem("users")) || [];
 
 export const user = (state = initialState, { payload, type }) => {
-  let newState;
+  let State;
   switch (type) {
     case ADD_USER:
-      newState = [...state, payload];
-      localStorage.setItem("users", JSON.stringify(newState));
-      return newState;
+      State = [...state, payload];
+      localStorage.setItem("users", JSON.stringify(State));
+      return State;
     case REMOVE_USER:
-      newState = state.filter((el) => el.id !== payload.id);
-      localStorage.setItem("users", JSON.stringify(newState));
-      return newState;
+      State = state.filter((el) => el.id !== payload.id);
+      localStorage.setItem("users", JSON.stringify(State));
+      return State;
     case EDIT_USER:
-      newState = state.map((el) => (el.id === payload.id ? el : payload));
-      localStorage.setItem("users", JSON.stringify(newState));
-      return newState;
+      State = state.map((el) => (el.id === payload.id ? payload : el));
+      localStorage.setItem("users", JSON.stringify(State));
+      return State;
     case FOLLOW_USER:
-      newState = state.map((el) =>
+      State = state.map((el) =>
         el.id === payload.id ? { ...el, follow: !el.follow } : el
       );
-      localStorage.setItem("users", JSON.stringify(newState));
-      return newState;
+      localStorage.setItem("users", JSON.stringify(State));
+      return State;
     default:
       return state;
   }

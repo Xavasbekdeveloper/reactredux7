@@ -43,7 +43,6 @@ function Users({ data }) {
       <Modal
         setShowModal={setShowModal}
         showModal={showModal}
-        setEditData={setEditData}
         editData={editData}
       />
     </>

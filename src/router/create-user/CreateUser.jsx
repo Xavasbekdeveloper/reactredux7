@@ -37,7 +37,6 @@ function CreateUser() {
       gender,
       createdAt: timeZoneGMT(5).toISOString(),
       follow: false,
-      edit: false,
     };
     dispatch(addUser(newUser));
 
@@ -55,6 +54,7 @@ function CreateUser() {
         <input
           required
           value={name}
+          name="name"
           onChange={(e) => setName(e.target.value)}
           type="text"
           placeholder="name"
@@ -62,6 +62,7 @@ function CreateUser() {
         <input
           required
           value={username}
+          name="username"
           onChange={(e) => setUsername(e.target.value)}
           type="text"
           placeholder="username"
@@ -69,6 +70,7 @@ function CreateUser() {
         <input
           required
           value={profession}
+          name="profession"
           onChange={(e) => setProfession(e.target.value)}
           type="text"
           placeholder="profession"
@@ -76,6 +78,7 @@ function CreateUser() {
         <input
           required
           value={age}
+          name="age"
           onChange={(e) => setAge(e.target.value)}
           type="number"
           placeholder="age"
@@ -83,8 +86,8 @@ function CreateUser() {
         <select
           required
           value={gender}
+          name="gender"
           onChange={(e) => setGender(e.target.value)}
-          name=""
           id=""
         >
           <option value="">gender</option>

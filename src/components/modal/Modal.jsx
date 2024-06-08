@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { editUser } from "../../context/action";
 
 const initialState = {
+  id: 0,
   name: "",
   username: "",
   profession: "",
@@ -14,11 +15,10 @@ const initialState = {
 const Modal = ({ setShowModal, showModal, editData }) => {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState(initialState);
-  console.log(formData);
 
   useEffect(() => {
-    const { name, username, profession, age, gender } = editData;
-    setFormData({ name, username, profession, age, gender });
+    const { name, username, profession, age, gender, id } = editData;
+    setFormData({ name, username, profession, age, gender, id });
   }, [editData]);
 
   const handleChange = (e) => {
@@ -28,9 +28,11 @@ const Modal = ({ setShowModal, showModal, editData }) => {
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    dispatch(editUser(formData));
+    // dispatch(editUser(formData));
     setShowModal(false);
   };
+
+  console.log(editData);
 
   return (
     <>
